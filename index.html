@@ -1,7 +1,81 @@
-<html>
-<title>personal branding</title>
-<head></head>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Kalkulator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            padding: 50px;
+        }
+        .kalkulator {
+            width: 300px;
+            background: white;
+            padding: 20px;
+            margin: auto;
+            border-radius: 5px;
+            box-shadow: 0 0 10px #ccc;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 8px;
+            margin-top: 8px;
+        }
+        h2 {
+            text-align: center;
+        }
+    </style>
+</head>
 <body>
-<h1>tttt<h1>
+
+<div class="kalkulator">
+    <h2>Kalkulator</h2>
+
+    <input type="number" id="angka1" placeholder="Angka pertama">
+    <input type="number" id="angka2" placeholder="Angka kedua">
+
+    <select id="operator">
+        <option value="+">Tambah (+)</option>
+        <option value="-">Kurang (-)</option>
+        <option value="*">Kali (×)</option>
+        <option value="/">Bagi (÷)</option>
+    </select>
+
+    <button onclick="hitung()">Hitung</button>
+
+    <h3 id="hasil"></h3>
+</div>
+
+<script>
+    function hitung() {
+        let a = parseFloat(document.getElementById("angka1").value);
+        let b = parseFloat(document.getElementById("angka2").value);
+        let op = document.getElementById("operator").value;
+        let hasil;
+
+        if (isNaN(a) || isNaN(b)) {
+            hasil = "Masukkan angka dengan benar";
+        } else {
+            switch (op) {
+                case "+":
+                    hasil = a + b;
+                    break;
+                case "-":
+                    hasil = a - b;
+                    break;
+                case "*":
+                    hasil = a * b;
+                    break;
+                case "/":
+                    hasil = (b !== 0) ? a / b : "Tidak bisa dibagi 0";
+                    break;
+            }
+        }
+
+        document.getElementById("hasil").innerText = "Hasil: " + hasil;
+    }
+</script>
+
 </body>
 </html>
