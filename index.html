@@ -2,137 +2,78 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Kalkulator Modern</title>
-    <style>
-        body {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: 'Segoe UI', sans-serif;
-        }
-
-        .calculator {
-            background: #1e1e2f;
-            padding: 20px;
-            border-radius: 15px;
-            width: 280px;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
-        }
-
-        .display {
-            background: #111;
-            color: #00ffcc;
-            font-size: 32px;
-            padding: 15px;
-            text-align: right;
-            border-radius: 10px;
-            margin-bottom: 15px;
-            overflow-x: auto;
-        }
-
-        .buttons {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
-        }
-
-        button {
-            padding: 15px;
-            font-size: 18px;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            background: #2e2e4d;
-            color: white;
-            transition: 0.2s;
-        }
-
-        button:hover {
-            background: #3f3f6b;
-        }
-
-        button:active {
-            transform: scale(0.95);
-        }
-
-        .operator {
-            background: #ff9500;
-        }
-
-        .operator:hover {
-            background: #ffa733;
-        }
-
-        .equal {
-            background: #00c853;
-            grid-column: span 2;
-        }
-
-        .clear {
-            background: #e53935;
-        }
-
-        .clear:hover {
-            background: #ff5252;
-        }
-    </style>
+    <title>Portofolio Saya</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<div class="calculator">
-    <div class="display" id="display">0</div>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <h1 class="logo">MyPortfolio</h1>
+        <ul>
+            <li><a href="#about">Tentang</a></li>
+            <li><a href="#skills">Skill</a></li>
+            <li><a href="#projects">Project</a></li>
+            <li><a href="#contact">Kontak</a></li>
+        </ul>
+    </nav>
 
-    <div class="buttons">
-        <button class="clear" onclick="clearDisplay()">C</button>
-        <button onclick="appendValue('/')">÷</button>
-        <button onclick="appendValue('*')">×</button>
-        <button class="operator" onclick="appendValue('-')">−</button>
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="assets/img/profile.jpg" alt="Profile">
+        <h2>Halo, Saya <span>Nama Kamu</span></h2>
+        <p>Web Developer | UI Designer | Freelancer</p>
+    </section>
 
-        <button onclick="appendValue('7')">7</button>
-        <button onclick="appendValue('8')">8</button>
-        <button onclick="appendValue('9')">9</button>
-        <button class="operator" onclick="appendValue('+')">+</button>
+    <!-- About -->
+    <section id="about" class="section">
+        <h2>Tentang Saya</h2>
+        <p>
+            Saya adalah seorang web developer yang fokus pada pembuatan website
+            sederhana, modern, dan responsif menggunakan HTML dan CSS.
+        </p>
+    </section>
 
-        <button onclick="appendValue('4')">4</button>
-        <button onclick="appendValue('5')">5</button>
-        <button onclick="appendValue('6')">6</button>
-        <button onclick="appendValue('.')">.</button>
+    <!-- Skills -->
+    <section id="skills" class="section">
+        <h2>Skill</h2>
+        <div class="skills">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+            <span>PHP</span>
+        </div>
+    </section>
 
-        <button onclick="appendValue('1')">1</button>
-        <button onclick="appendValue('2')">2</button>
-        <button onclick="appendValue('3')">3</button>
-        <button class="equal" onclick="calculate()">=</button>
+    <!-- Projects -->
+    <section id="projects" class="section">
+        <h2>Project</h2>
+        <div class="projects">
+            <div class="card">
+                <h3>Kalkulator Web</h3>
+                <p>Aplikasi kalkulator sederhana menggunakan HTML & CSS</p>
+            </div>
+            <div class="card">
+                <h3>Landing Page</h3>
+                <p>Website landing page modern dan responsif</p>
+            </div>
+            <div class="card">
+                <h3>Portofolio</h3>
+                <p>Website portofolio pribadi</p>
+            </div>
+        </div>
+    </section>
 
-        <button onclick="appendValue('0')">0</button>
-        <button onclick="appendValue('00')">00</button>
-    </div>
-</div>
+    <!-- Contact -->
+    <section id="contact" class="section">
+        <h2>Kontak</h2>
+        <p>Email: nama@email.com</p>
+        <p>Instagram: @username</p>
+    </section>
 
-<script>
-    let display = document.getElementById("display");
-
-    function appendValue(value) {
-        if (display.innerText === "0") {
-            display.innerText = value;
-        } else {
-            display.innerText += value;
-        }
-    }
-
-    function clearDisplay() {
-        display.innerText = "0";
-    }
-
-    function calculate() {
-        try {
-            display.innerText = eval(display.innerText);
-        } catch {
-            display.innerText = "Error";
-        }
-    }
-</script>
+    <footer>
+        <p>© 2026 - Portofolio Saya</p>
+    </footer>
 
 </body>
 </html>
